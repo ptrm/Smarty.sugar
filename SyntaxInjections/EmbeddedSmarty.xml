@@ -9,4 +9,19 @@
         <include syntax="sourcecode.smarty" />
 	</injection>
 	
+	<injection name="eu.ptrm.injections.smarty.tag" selector="sourcecode.smarty embedded.styling.css" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" />
+	</injection>
+
+	<injection name="eu.ptrm.injections.smarty.tag" selector="sourcecode.smarty embedded.styling.css literal.string.quoted" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" />
+	</injection>
+
+	<injection name="eu.ptrm.injections.smarty.tag" selector="sourcecode.smarty embedded.sourcecode.js" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" />
+	</injection>
+
+	<injection name="eu.ptrm.injections.smarty.tag" selector="sourcecode.smarty embedded.sourcecode.js string.quoted" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" />
+	</injection>
 </injections>
