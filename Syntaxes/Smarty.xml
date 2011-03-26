@@ -139,6 +139,14 @@
 				<expression>\b(TRUE|FALSE|true|false)\b</expression>
 			</zone>
 			
+			<zone name="delimiter.balanced.parenthesis.begin">
+				<expression>\(</expression>
+			</zone>
+			
+			<zone name="delimiter.balanced.parenthesis.end">
+				<expression>\(</expression>
+			</zone>
+
 			<include collection="number" />
 			
 			<include collection="variable" />
@@ -172,7 +180,7 @@
 		<collection name="variable.extended">
 			<zone name="identifier.variable">
 <!--				<expression>(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*(([\[\]]|([\.])|(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*|[a-zA-Z0-9_\x{7f}-\x{ff}]+)*)</expression>-->
-				<expression>(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*([\[\]\.\$a-zA-Z0-9_\x{7f}-\x{ff}]*)</expression>
+				<expression>(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*(([\[\]\.\$a-zA-Z0-9_\x{7f}-\x{ff}]|\-&gt;)*)</expression>
 				<capture number="1" name="delimiter.structural.declarative"/>
 				
 				<capture number="2" name="identifier.variable.extended">
@@ -180,8 +188,9 @@
 						<include collection="index" />
 						<zone name="identifier.variable.sub">
 							<starts-with>
-								<expression>(\.|-&gt;)</expression>
-								<capture number="0" name="delimiter.separator"/>
+								<expression>((\.)|(-&gt;))</expression>
+								<capture number="2" name="delimiter.separator"/>
+								<capture number="3" name="delimiter.pointer"/>
 							</starts-with>
 							<ends-with>
 								<expression>(?&lt;=[a-zA-Z0-9_\x{7f}-\x{ff}])\b</expression>
