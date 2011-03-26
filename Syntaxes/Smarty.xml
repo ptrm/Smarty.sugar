@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<syntax name="source.smarty">
+	<zones>
+		<zone name="metadata.comment">
+			<starts-with>
+<!--				<expression>(?&lt;=\{)\*</expression>-->
+				<expression>\{\*</expression>
+				<capture number="0" name="delimiter.balanced.bracket.begin"/>
+			</starts-with>
+			<ends-with>
+<!--				<expression>\*(?=\})</expression>-->
+				<expression>\*\}</expression>
+				<capture number="0" name="delimiter.balanced.bracket.end"/>
+			</ends-with>
+		</zone>
+		
+		<zone name="element.standalone.literal">
+			<starts-with>
+				<expression>\{literal\}</expression>
+				<capture number="0" name="delimiter.balanced.bracket.begin.curly-brace"/>
+			</starts-with>
+			<ends-with>
+				<expression>\{/literal\}</expression>
+				<capture number="0" name="delimiter.balanced.bracket.end.curly-brace"/>
+			</ends-with>
+			<subzones>
+				<include syntax="text.html.basic" />
+			</subzones>
+		</zone>
+		
+		<zone name="element.standalone.php">
+			<starts-with>
+				<expression>\{php\}</expression>
+				<capture number="0" name="delimiter.balanced.bracket.begin.curly-brace"/>
+			</starts-with>
+			<ends-with>
+				<expression>\{/php\}</expression>
+				<capture number="0" name="delimiter.balanced.bracket.end.curly-brace"/>
+			</ends-with>
+			<subzones>
+				<include syntax="sourcecode.php" collection="language" />
+			</subzones>
+		</zone>
+		
+		<zone name="element.standalone">
+			<starts-with>
+				<expression>\{</expression>
+				<capture number="0" name="delimiter.balanced.bracket.begin.curly-brace"/>
+			</starts-with>
+			<ends-with>
+				<expression>\}</expression>
+				<capture number="0" name="delimiter.balanced.bracket.end.curly-brace"/>
+			</ends-with>
+			<subzones>
+				<include collection="tag" />
+			</subzones>
+		</zone>
+				
+		<include syntax="text.html.basic" />
+	</zones>
+	
+	<library>
+		<collection name="tag">
+			<zone name="keyword.control">
+				<expression>((?&lt;={)|(?&lt;={/))(if|else|elseif|foreach|foreachelse|section|sectionelse)\b</expression>
+			</zone>
+			<zone name="identifier.function.built-in">
+				<expression>((?&lt;={)|(?&lt;={/))(capture|config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|literal|math|strip|rdelim|ldelim|assign|html_[a-z_]*)\b</expression>
+			</zone>
+			<zone name="identifier.function">
+				<expression>((?&lt;={)|(?&lt;={/))([a-zA-Z_]*)\b</expression>
+			</zone>
+			<zone name="operator.logical">
+				<expression>\b(and|&amp;&amp;|or|\|\|)\b</expression>
+			</zone>
+			<zone name="operator">
+				<expression>\b(eq|==|neq|gt|&gt;|lt|&lt;|gte|&gt;=|lte|&lt;=|is|===|!==|not|!|even|odd|not|mod|div|by)\b</expression>
+			</zone>
+
+			<zone name="identifier.function.variable-modifier">
+<!--				<expression>\|(capitalize|cat|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|truncate|upper|wordwrap)</expression>-->
+					<expression>\|@?[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*</expression>
+			</zone>
+		
+			<zone name="attribute">
+				<expression>\b[a-zA-Z]+=</expression>
+			</zone>
+			
+			<zone name="literal.string">
+				<starts-with>
+					<expression>'</expression>
+					<capture number="0" name="delimiter.balanced.quote.single.begin"/>
+				</starts-with>
+				<ends-with>
+					<expression>'</expression>
+					<capture number="0" name="delimiter.balanced.quote.single.end"/>
+				</ends-with>
+				<subzones>
+					<include collection="escape" />
+				</subzones>
+			</zone>
+			<zone name="literal.string">
+				<starts-with>
+					<expression>"</expression>
+					<capture number="0" name="delimiter.balanced.quote.double.begin"/>
+				</starts-with>
+				<ends-with>
+					<expression>"</expression>
+					<capture number="0" name="delimiter.balanced.quote.double.end"/>
+				</ends-with>
+				<subzones>
+					<include collection="escape" />
+					<include collection="variable.indexed" />
+					<zone name="delimiter.balanced.quote.backquote">
+						<starts-with>
+							<expression>`</expression>
+							<capture number="0" name="delimiter.balanced.quote.backquote.begin"/>
+						</starts-with>
+						<ends-with>
+							<expression>`</expression>
+							<capture number="0" name="delimiter.balanced.quote.backquote.end"/>
+						</ends-with>
+						<subzones>
+							<include collection="variable" />
+						</subzones>
+					</zone>
+				</subzones>
+			</zone>
+			
+			<zone name="literal.keyword.bool">
+				<expression>\b(TRUE|FALSE|true|false)\b</expression>
+			</zone>
+			
+			<include collection="number" />
+			
+			<include collection="variable" />
+			
+		</collection>
+		
+		<collection name="escape">
+			<zone name="constant.character.escape">
+				<expression>\\.</expression>
+			</zone>
+		</collection>
+		
+		<collection name="number">
+			<zone name="literal.numeric">
+				<expression>\b[0-9]+(\.[0-9]+)?\b</expression>
+			</zone>
+		</collection>
+		
+		<collection name="variable">
+			<include collection="variable.extended" />
+			<include collection="variable.indexed" />
+		</collection>
+		
+		<collection name="variable.extended">
+			<zone name="identifier.variable">
+<!--				<expression>(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*(([\[\]]|([\.])|(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*|[a-zA-Z0-9_\x{7f}-\x{ff}]+)*)</expression>-->
+				<expression>(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*([\[\]\.\$a-zA-Z0-9_\x{7f}-\x{ff}]*)</expression>
+				<capture number="1" name="delimiter.structural.declarative"/>
+				
+				<capture number="2" name="identifier.variable.extended">
+					<subzones>
+						<include collection="index" />
+						<zone name="identifier.variable.sub">
+							<starts-with>
+								<expression>(\.|-&gt;)</expression>
+								<capture number="0" name="delimiter.separator"/>
+							</starts-with>
+							<ends-with>
+								<expression>(?&lt;=[a-zA-Z0-9_\x{7f}-\x{ff}])\b</expression>
+							</ends-with>
+							<subzones>
+								<include collection="variable.single" />
+							</subzones>
+						</zone>
+					</subzones>
+				</capture>
+			</zone>
+		</collection>
+		
+		<collection name="index">
+			<zone name="literal.index">
+				<starts-with>
+					<expression>\[</expression>
+					<capture number="0" name="delimiter.balanced.bracket.square.begin"/>
+				</starts-with>
+				<ends-with>
+					<expression>\]</expression>
+					<capture number="0" name="delimiter.balanced.bracket.square.end"/>
+				</ends-with>
+				<subzones>
+					<include collection="variable.single" />
+				</subzones>
+			</zone>
+		</collection>
+		
+		<collection name="variable.indexed">
+			<zone name="identifier.variable">
+				<expression>(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*([\[\]\$a-zA-Z0-9_\x{7f}-\x{ff}]*)</expression>
+				<capture number="1" name="delimiter.structural.declarative"/>
+				
+				<capture number="2" name="identifier.variable.extended">
+					<subzones>
+						<include collection="index" />
+					</subzones>
+				</capture>
+			</zone>
+		</collection>
+		
+		<collection name="variable.single">
+			<zone name="identifier.variable.global">
+				<expression>\b(\$)smarty</expression>
+				<capture number="1" name="delimiter.structural.declarative"/>
+			</zone>
+			
+			<zone name="identifier.variable.other">
+				<expression>(\$)[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*\b</expression>
+				<capture number="1" name="delimiter.structural.declarative"/>
+			</zone>
+		</collection>
+		
+	</library>
+</syntax>

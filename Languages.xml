@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+	
+	<language id="eu.ptrm.smarty">
+		<root-zone>source.smarty</root-zone>
+		<name>Smarty</name>
+		<detectors>
+			<extension>tpl</extension>
+		</detectors>
+	</language>
+	
+	<meta>
+		<name>Smarty</name>
+		<description>Syntax highlighting for Smarty</description>
+		<author>Piotrek Marciniak</author>
+		<identifier>eu.ptrm.Sugar.Smarty</identifier>
+		<version status="preview">0.1</version>
+		<download format="git">git://github.com/ptrm/Smarty.sugar.git</download>
+	</meta>
+	
+</settings>
