@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<injections>	
+	
+    <injection name="eu.ptrm.injections.smarty.tag" selector="source.smarty tag.open" action="insert-before-children">
+        <include syntax="source.smarty" />
+	</injection>
+	
+    <injection name="eu.ptrm.injections.smarty.tag" selector="source.smarty attribute-value.string" action="insert-before-children">
+        <include syntax="source.smarty" />
+	</injection>
+	
+</injections>
