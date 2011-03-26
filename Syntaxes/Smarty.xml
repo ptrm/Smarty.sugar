@@ -4,24 +4,28 @@
 		<zone name="metadata.comment">
 			<starts-with>
 <!--				<expression>(?&lt;=\{)\*</expression>-->
-				<expression>\{\*</expression>
-				<capture number="0" name="delimiter.balanced.bracket.begin"/>
+				<expression>(\{)\*</expression>
+<!--				<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>-->
 			</starts-with>
 			<ends-with>
 <!--				<expression>\*(?=\})</expression>-->
-				<expression>\*\}</expression>
-				<capture number="0" name="delimiter.balanced.bracket.end"/>
+				<expression>\*(\})</expression>
+<!--				<capture number="1" name="delimiter.balanced.bracket.end.curly-brace"/>-->
 			</ends-with>
 		</zone>
 		
 		<zone name="element.standalone.literal">
 			<starts-with>
-				<expression>\{literal\}</expression>
-				<capture number="0" name="delimiter.balanced.bracket.begin.curly-brace"/>
+				<expression>(\{)(literal)(\})</expression>
+				<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
+				<capture number="2" name="identifier.function.tag.built-in"/>
+				<capture number="3" name="delimiter.balanced.bracket.end.curly-brace"/>
 			</starts-with>
 			<ends-with>
-				<expression>\{/literal\}</expression>
-				<capture number="0" name="delimiter.balanced.bracket.end.curly-brace"/>
+				<expression>(\{)/(literal)(\})</expression>
+				<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
+				<capture number="2" name="identifier.function.tag.built-in"/>
+				<capture number="3" name="delimiter.balanced.bracket.end.curly-brace"/>
 			</ends-with>
 			<subzones>
 				<include syntax="text.html.basic" />
@@ -29,13 +33,18 @@
 		</zone>
 		
 		<zone name="element.standalone.php">
+			<!-- TODO: Fix capture names -->
 			<starts-with>
-				<expression>\{php\}</expression>
-				<capture number="0" name="delimiter.balanced.bracket.begin.curly-brace"/>
+				<expression>(\{)(php)(\})</expression>
+				<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
+				<capture number="2" name="identifier.function.tag.built-in"/>
+				<capture number="3" name="delimiter.balanced.bracket.end.curly-brace"/>
 			</starts-with>
 			<ends-with>
-				<expression>\{/php\}</expression>
-				<capture number="0" name="delimiter.balanced.bracket.end.curly-brace"/>
+				<expression>(\{)/(php)(\})</expression>
+				<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
+				<capture number="2" name="identifier.function.tag.built-in"/>
+				<capture number="3" name="delimiter.balanced.bracket.end.curly-brace"/>
 			</ends-with>
 			<subzones>
 				<include syntax="sourcecode.php" collection="language" />
@@ -64,10 +73,10 @@
 			<zone name="keyword.control">
 				<expression>((?&lt;={)|(?&lt;={/))(if|else|elseif|foreach|foreachelse|section|sectionelse)\b</expression>
 			</zone>
-			<zone name="identifier.function.built-in">
+			<zone name="identifier.function.tag.built-in">
 				<expression>((?&lt;={)|(?&lt;={/))(capture|config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|literal|math|strip|rdelim|ldelim|assign|html_[a-z_]*)\b</expression>
 			</zone>
-			<zone name="identifier.function">
+			<zone name="identifier.function.tag">
 				<expression>((?&lt;={)|(?&lt;={/))([a-zA-Z_]*)\b</expression>
 			</zone>
 			<zone name="operator.logical">
@@ -86,7 +95,7 @@
 				<expression>\b[a-zA-Z]+=</expression>
 			</zone>
 			
-			<zone name="literal.string">
+			<zone name="literal.string.quoted.single">
 				<starts-with>
 					<expression>'</expression>
 					<capture number="0" name="delimiter.balanced.quote.single.begin"/>
@@ -99,7 +108,7 @@
 					<include collection="escape" />
 				</subzones>
 			</zone>
-			<zone name="literal.string">
+			<zone name="literal.string.quoted.double">
 				<starts-with>
 					<expression>"</expression>
 					<capture number="0" name="delimiter.balanced.quote.double.begin"/>
@@ -111,7 +120,7 @@
 				<subzones>
 					<include collection="escape" />
 					<include collection="variable.indexed" />
-					<zone name="delimiter.balanced.quote.backquote">
+					<zone name="constant.escape.string">
 						<starts-with>
 							<expression>`</expression>
 							<capture number="0" name="delimiter.balanced.quote.backquote.begin"/>
@@ -144,8 +153,15 @@
 		</collection>
 		
 		<collection name="number">
-			<zone name="literal.numeric">
-				<expression>\b[0-9]+(\.[0-9]+)?\b</expression>
+			<zone name="literal.numeric.float">
+				<expression>\b([0-9]+)(\.)([0-9]+)\b</expression>
+				<capture number="1" name="integral.value" />
+				<capture number="2" name="delimiter.separator" />
+				<capture number="3" name="fractional.value" />
+			</zone>
+			<zone name="literal.numeric.integer">
+				<expression>\b[0-9]+\b</expression>
+				<capture number="0" name="integral.value" />
 			</zone>
 		</collection>
 		
@@ -184,11 +200,11 @@
 			<zone name="literal.index">
 				<starts-with>
 					<expression>\[</expression>
-					<capture number="0" name="delimiter.balanced.bracket.square.begin"/>
+					<capture number="0" name="delimiter.balanced.square-brace.begin"/>
 				</starts-with>
 				<ends-with>
 					<expression>\]</expression>
-					<capture number="0" name="delimiter.balanced.bracket.square.end"/>
+					<capture number="0" name="delimiter.balanced.square-brace.end"/>
 				</ends-with>
 				<subzones>
 					<include collection="variable.single" />
