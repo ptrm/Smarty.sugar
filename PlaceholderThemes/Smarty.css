@@ -1,0 +1,24 @@
+/*
+	@theme Smarty placeholder
+	@placeholder source.smarty
+*/
+
+source.smarty element identifier.variable {
+	color: #4F9FCF;
+}
+
+source.smarty element attribute, source.smarty element identifier.function {
+	color: #270079;
+}
+
+source.smarty element identifier.function.tag, source.smarty keyword.control {
+	font-weight: bold;
+}
+
+literal.numeric {
+	color: #7653c1;
+}
+
+delimiter.balanced.bracket.curly-brace {
+	color: #270079;
+}
