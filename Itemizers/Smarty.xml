@@ -6,13 +6,13 @@
 		<class>ESCommentItem</class>
 	</recipe>
 
-	<recipe name="smarty.tag.collection.keyword.control.function">
+	<recipe name="smarty.tag.collection.keyword.control">
 		<start-selector>element.paired.open:has-child(keyword.control:capture(name))</start-selector>
 		<end-selector>element.paired.close:has-child(keyword.control[text == $name.text])</end-selector>
 		<subrecipes>
 			<include-root-recipes/>
 		</subrecipes>
-		<class>ESBaseItem</class>
+		<class>DRClassItem</class>
 	</recipe>
 	
 	<recipe name="smarty.tag.collection.tag.function">
@@ -21,12 +21,15 @@
 		<subrecipes>
 			<include-root-recipes/>
 		</subrecipes>
-		<class>ESBaseItem</class>
+		<class>DRClassItem</class>
 	</recipe>
 
-	<recipe name="smarty.tag.collection">
+	<recipe name="smarty.tag.collection.processing-instruction">
 		<selector>element.paired.php:has-child(identifier.function.tag:capture(name)), element.paired.literal:has-child(identifier.function.tag:capture(name))</selector>
-		<class>DRClassItem</class>
+		<subrecipes>
+			<include-root-recipes/>
+		</subrecipes>
+		<class>ESBaseItem</class>
 	</recipe>
 	
 	<recipe name="smarty.tag.standalone.function">
