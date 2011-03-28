@@ -91,6 +91,17 @@
 				<include collection="tag" />
 			</subzones>
 		</zone>
+		
+		<zone name="element.empty">
+			<starts-with>
+				<expression>(\{)</expression>
+				<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
+			</starts-with>
+			<ends-with>
+				<expression>(\})</expression>
+				<capture number="0" name="delimiter.balanced.bracket.end.curly-brace"/>
+			</ends-with>
+		</zone>
 				
 		<include syntax="text.html.basic" />
 	</zones>
