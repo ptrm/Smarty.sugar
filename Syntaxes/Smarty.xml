@@ -52,7 +52,7 @@
 		
 		<zone name="element.paired.open">
 			<starts-with>
-				<expression>(\{)\s*((if|foreach|section)|(capture|strip))\b</expression>
+				<expression>(\{)\s*((if|foreach|section)|(capture|strip))(?=(\s|\}))\b</expression>
 				<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
 				<capture number="3" name="keyword.control"/>
 				<capture number="4" name="identifier.function.tag.open.built-in"/>
@@ -77,7 +77,7 @@
 
 		<zone name="element.standalone">
 			<starts-with>
-				<expression>(\{)\s*(((else|elseif|foreachelse|sectionelse)|(config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|math|rdelim|ldelim|assign|html_[a-z_]*)|([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*))\b|(?=[\$#"']))</expression>
+				<expression>(\{)\s*(((else|elseif|foreachelse|sectionelse)|(config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|math|rdelim|ldelim|assign|html_[a-z_]*)|([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*))(?=(\s|\}))\b|(?=[\$#"']))</expression>
 				<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
 				<capture number="4" name="keyword.control"/>
 				<capture number="5" name="identifier.function.tag.built-in"/>
