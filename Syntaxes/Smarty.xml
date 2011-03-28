@@ -67,26 +67,21 @@
 		</zone>
 				
 		<zone name="element.paired.close">
-			<starts-with>
-				<expression>(\{)\s*/((if|foreach|section)|(capture|strip))\b</expression>
-				<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
-				<capture number="3" name="keyword.control"/>
-				<capture number="4" name="identifier.function.tag.close.built-in"/>
-			</starts-with>
-			<ends-with>
-				<expression>\}</expression>
-				<capture number="0" name="delimiter.balanced.bracket.end.curly-brace"/>
-			</ends-with>
+			<expression>(\{)\s*/((if|foreach|section)|(capture|strip))\s*(\})</expression>
+			<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
+			<capture number="3" name="keyword.control"/>
+			<capture number="4" name="identifier.function.tag.close.built-in"/>
+			<capture number="5" name="delimiter.balanced.bracket.end.curly-brace"/>
 		</zone>
 				
 
 		<zone name="element.standalone">
 			<starts-with>
-				<expression>(\{)\s*((else|elseif|foreachelse|sectionelse)|(config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|math|rdelim|ldelim|assign|html_[a-z_]*)|([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*))\b</expression>
+				<expression>(\{)\s*(((else|elseif|foreachelse|sectionelse)|(config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|math|rdelim|ldelim|assign|html_[a-z_]*)|([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*))\b|(?=[\$#"']))</expression>
 				<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
-				<capture number="3" name="keyword.control"/>
-				<capture number="4" name="identifier.function.tag.built-in"/>
-				<capture number="5" name="identifier.function.tag"/>
+				<capture number="4" name="keyword.control"/>
+				<capture number="5" name="identifier.function.tag.built-in"/>
+				<capture number="6" name="identifier.function.tag"/>
 			</starts-with>
 			<ends-with>
 				<expression>\}</expression>
