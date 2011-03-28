@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <injections>	
-	
+
     <injection name="eu.ptrm.injections.smarty.tag" selector="sourcecode.smarty tag.open" action="insert-before-children">
-        <include syntax="sourcecode.smarty" />
+        <include syntax="sourcecode.smarty" collection="tags" />
 	</injection>
 	
-    <injection name="eu.ptrm.injections.smarty.tag" selector="sourcecode.smarty attribute-value.string" action="insert-before-children">
-        <include syntax="sourcecode.smarty" />
+    <injection name="eu.ptrm.injections.smarty.tag.attribute-value" selector="sourcecode.smarty attribute-value.string" action="insert-before-children">
+        <include syntax="sourcecode.smarty" collection="tags" />
 	</injection>
 	
-	<injection name="eu.ptrm.injections.smarty.tag" selector="sourcecode.smarty embedded.styling.css" action="insert-before-children">
-	    <include syntax="sourcecode.smarty" />
+	<injection name="eu.ptrm.injections.smarty.embedded-css" selector="sourcecode.smarty embedded.styling.css" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" collection="tags" />
 	</injection>
 
-	<injection name="eu.ptrm.injections.smarty.tag" selector="sourcecode.smarty embedded.styling.css literal.string.quoted" action="insert-before-children">
-	    <include syntax="sourcecode.smarty" />
+	<injection name="eu.ptrm.injections.smarty.embedded-css.string" selector="sourcecode.smarty embedded.styling.css literal.string.quoted" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" collection="tags" />
 	</injection>
 
-	<injection name="eu.ptrm.injections.smarty.tag" selector="sourcecode.smarty embedded.sourcecode.js" action="insert-before-children">
-	    <include syntax="sourcecode.smarty" />
+	<injection name="eu.ptrm.injections.smarty.embedded-js" selector="sourcecode.smarty embedded.sourcecode.js" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" collection="tags" />
 	</injection>
 
-	<injection name="eu.ptrm.injections.smarty.tag" selector="sourcecode.smarty embedded.sourcecode.js string.quoted" action="insert-before-children">
-	    <include syntax="sourcecode.smarty" />
+	<injection name="eu.ptrm.injections.smarty.embedded-js.string" selector="sourcecode.smarty embedded.sourcecode.js string.quoted" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" collection="tags" />
 	</injection>
 </injections>
