@@ -33,7 +33,7 @@
 	</recipe>
 	
 	<recipe name="smarty.tag.standalone.function">
-		<selector>element.standalone:has-child(identifier.function.tag:capture(name)), element.standalone:has-child(literal.string:capture(name)), element.standalone:has-child(identifier.variable:capture(name)), element.standalone</selector>
+		<selector>element.standalone:has-child(identifier.function.tag:capture(name)), element.standalone:has-child(literal.string:capture(name)), element.standalone:has-child(identifier.variable:capture(name)), element.standalone, element.empty</selector>
 		<class>ESBaseItem</class>
 	</recipe>
 
