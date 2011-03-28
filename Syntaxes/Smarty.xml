@@ -112,6 +112,17 @@
 			<zone name="attribute">
 				<expression>\b[a-zA-Z]+=</expression>
 			</zone>
+
+			<zone name="identifier.variable.config">
+				<starts-with>
+					<expression>#</expression>
+					<capture number="0" name="delimiter.balanced.hash.begin"/>
+				</starts-with>
+				<ends-with>
+					<expression>#</expression>
+					<capture number="0" name="delimiter.balanced.hash.end"/>
+				</ends-with>
+			</zone>
 			
 			<zone name="literal.string.quoted.single">
 				<starts-with>
@@ -126,6 +137,7 @@
 					<include collection="escape" />
 				</subzones>
 			</zone>
+
 			<zone name="literal.string.quoted.double">
 				<starts-with>
 					<expression>"</expression>
