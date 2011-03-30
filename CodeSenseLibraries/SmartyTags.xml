@@ -61,15 +61,6 @@
 		
 		<completion string="rdelim"/>
 		
-		<completion string="include">
-			<behavior>
-				<append-dynamic>
-					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> file=$1\}</transform-into>
-				</append-dynamic>
-			</behavior>
-		</completion>
-		
 		<completion string="literal">
 			<behavior>
 				<append-dynamic>
