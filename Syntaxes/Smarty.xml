@@ -88,7 +88,7 @@
 				<starts-with>
 					<expression>(\{)\s*((((else|elseif|foreachelse|sectionelse))|(config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|math|rdelim|ldelim|assign|html_[a-z_]*)|([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*))(?=(\s|\}))\b|(?=[\$#"']))</expression>
 					<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
-					<capture number="4" name="identifier.function.tag.close"/>
+					<capture number="4" name="identifier.function.tag"/>
 					<capture number="5" name="keyword.control"/>
 					<capture number="6" name="identifier.function.tag.built-in"/>
 					<capture number="7" name="identifier.function.tag"/>
