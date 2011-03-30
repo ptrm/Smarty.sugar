@@ -12,7 +12,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> file="$1"\}</transform-into>
+					<transform-into> file=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -34,7 +34,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> file="$1"\}</transform-into>
+					<transform-into> file=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -43,7 +43,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> file="$1"\}</transform-into>
+					<transform-into> file=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -52,7 +52,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> name="$1"\}</transform-into>
+					<transform-into> name=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -65,7 +65,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> file="$1"\}</transform-into>
+					<transform-into> file=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -92,7 +92,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> name="$1" loop="$2"\}$3\{/${completion}\}$0</transform-into>
+					<transform-into> name=$1 loop=$2\}$3\{/${completion}\}$0</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -103,7 +103,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> from="$1" item="$2"\}$3\{/${completion}\}$0</transform-into>
+					<transform-into> from=$1 item=$2\}$3\{/${completion}\}$0</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -114,7 +114,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> var="$1" value="$2"\}$0</transform-into>
+					<transform-into> var=$1 value=$2\}$0</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -125,7 +125,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> values="$1"\}</transform-into>
+					<transform-into> values=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -136,7 +136,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> var="$1"\}</transform-into>
+					<transform-into> var=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -145,7 +145,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> file="$1"\}</transform-into>
+					<transform-into> file=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -154,7 +154,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> options="$1"\}</transform-into>
+					<transform-into> options=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -163,7 +163,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> file="$1"\}</transform-into>
+					<transform-into> file=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -172,7 +172,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> options="$1"\}</transform-into>
+					<transform-into> options=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -181,7 +181,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into>${1: options="$2"}\}</transform-into>
+					<transform-into> options=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -194,7 +194,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> loop="$1"\}</transform-into>
+					<transform-into> loop=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -203,7 +203,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> address="$1"\}</transform-into>
+					<transform-into> address=$1\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
@@ -212,7 +212,7 @@
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>(\s*)|$</matched-suffix>
-					<transform-into> equation="$1" $2="$3"\}</transform-into>
+					<transform-into> equation="$1" $2=$3\}</transform-into>
 				</append-dynamic>
 			</behavior>
 		</completion>
