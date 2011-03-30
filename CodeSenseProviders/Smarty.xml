@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codesense>
+	<provider>
+		<selector>sourcecode.smarty element</selector>
+		<completions>eu.ptrm.smarty.tags</completions>
+		<complete-match capture="2">(\{)([a-zA-Z0-9-_]*)</complete-match>
+		<require-suffix>(\s|\}|^)</require-suffix>
+	</provider>
+</codesense>

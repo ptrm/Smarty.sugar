@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codesense version="1.0">
+	<set name="eu.ptrm.smarty.tags">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*)|$</matched-suffix>
+				<transform-into>\}$0</transform-into>
+			</append-dynamic>
+		</behavior>
+	
+		<completion string="config_load">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> file="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="if">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> $1\}$2\{/${completion}\}$0</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="elseif"/>
+		
+		<completion string="else"/>
+
+		<completion string="include">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> file="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="include_php">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> file="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="insert">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> name="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="ldelim"/>
+		
+		<completion string="rdelim"/>
+		
+		<completion string="include">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> file="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="literal">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into>\}$1\{/${completion}\}$0</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="php">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into>\}$1\{/${completion}\}$0</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="section">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> name="$1" loop="$2"\}$3\{/${completion}\}$0</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="sectionelse"/>
+		
+		<completion string="foreach">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> from="$1" item="$2"\}$3\{/${completion}\}$0</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="foreachelse"/>
+		
+		<completion string="assign">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> var="$1" value="$2"\}$0</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="counter"/>
+		
+		<completion string="cycle">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> values="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="debug" />
+		
+		<completion string="eval">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> var="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="fetch">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> file="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="html_checkboxes">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> options="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="html_image">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> file="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="html_options">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> options="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="html_radios">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into>${1: options="$2"}\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="html_select_date"/>
+		
+		<completion string="html_select_time"/>
+		
+		<completion string="html_table">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> loop="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="mailto">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> address="$1"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="math">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> equation="$1" $2="$3"\}</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		
+		<completion string="textformat">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*)|$</matched-suffix>
+					<transform-into> $1\}$2\{/${completion}\}$0</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+	</set>
+</codesense>
