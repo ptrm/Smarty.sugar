@@ -127,8 +127,10 @@
 					<expression>\|@?[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*</expression>
 			</zone>
 		
-			<zone name="attribute">
-				<expression>\b[a-zA-Z]+=</expression>
+			<zone>
+				<expression>\b([a-zA-Z_]+)(=)</expression>
+				<capture number="1" name="attribute-name"/>
+				<capture number="2" name="delimiter.separator.attribute"/>
 			</zone>
 
 			<zone name="identifier.variable.config">

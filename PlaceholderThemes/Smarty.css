@@ -7,7 +7,7 @@ sourcecode.smarty element identifier.variable {
 	color: #4F9FCF;
 }
 
-sourcecode.smarty element attribute, sourcecode.smarty element identifier.function {
+sourcecode.smarty element attribute-name, sourcecode.smarty element identifier.function {
 	color: #270079;
 }
 
