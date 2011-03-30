@@ -6,4 +6,11 @@
 		<complete-match capture="2">(\{)\s*([a-zA-Z0-9-_]*)</complete-match>
 		<require-suffix>(\s|\}|^)</require-suffix>
 	</provider>
+	
+	<provider>
+		<selector>element.paired.open:has-child(identifier.function.tag.open:capture(name)), element.paired.open:has-child(identifier.function.tag.open:capture(name)) > delimiter.balanced.bracket.end, element.standalone:has-child(identifier.function.tag:capture(name)), element.standalone:has-child(identifier.function.tag:capture(name)) > delimiter.balanced.bracket.end</selector>
+		<completions>eu.ptrm.smarty.${name}.attributes</completions>
+		<complete-match capture="2">(\s)([a-zA-Z0-9-_]*)</complete-match>
+		<require-suffix>(\s|\}|^)</require-suffix>
+	</provider>
 </codesense>

@@ -217,4 +217,215 @@
 			</behavior>
 		</completion>
 	</set>
+	
+	<behavior>
+		<append-dynamic>
+			<matched-suffix>(\s*=)|[^=]</matched-suffix>
+			<transform-into>(?1::=$1)</transform-into>
+		</append-dynamic>
+		<confirm characters="="/>
+	</behavior>
+	
+	<set name="eu.ptrm.smarty.config_load.attributes">
+		<completion string="file"/>
+		<completion string="section"/>
+		<completion string="scope"/>
+		<completion string="global"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.include.attributes">
+		<completion string="file"/>
+		<completion string="assign"/>
+	</set>
+	
+	<set name="eu.ptrm.smarty.include_php.attributes">
+		<completion string="file"/>
+		<completion string="once"/>
+		<completion string="assign"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.insert.attributes">
+		<completion string="name"/>
+		<completion string="assign"/>
+		<completion string="script"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.section.attributes">
+		<completion string="name"/>
+		<completion string="loop"/>
+		<completion string="start"/>
+		<completion string="step"/>
+		<completion string="max"/>
+		<completion string="show"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.foreach.attributes">
+		<completion string="from"/>
+		<completion string="item"/>
+		<completion string="key"/>
+		<completion string="name"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.counter.attributes">
+		<completion string="name"/>
+		<completion string="start"/>
+		<completion string="skip"/>
+		<completion string="direction"/>
+		<completion string="print"/>
+		<completion string="assign"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.cycle.attributes">
+		<completion string="name"/>
+		<completion string="values"/>
+		<completion string="print"/>
+		<completion string="advance"/>
+		<completion string="delimiter"/>
+		<completion string="assign"/>
+		<completion string="reset"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.debug.attributes">
+		<completion string="output"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.eval.attributes">
+		<completion string="var"/>
+		<completion string="assign"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.fetch.attributes">
+		<completion string="name"/>
+		<completion string="assign"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.html_checkboxes.attributes">
+		<completion string="name"/>
+		<completion string="values"/>
+		<completion string="output"/>
+		<completion string="selected"/>
+		<completion string="options"/>
+		<completion string="separator"/>
+		<completion string="assign"/>
+		<completion string="labels"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.html_image.attributes">
+		<completion string="file"/>
+		<completion string="height"/>
+		<completion string="width"/>
+		<completion string="basedir"/>
+		<completion string="alt"/>
+		<completion string="href"/>
+		<completion string="path_prefix"/>
+	</set>
+	
+	<set name="eu.ptrm.smarty.html_options.attributes">
+		<completion string="name"/>
+		<completion string="values"/>
+		<completion string="output"/>
+		<completion string="selected"/>
+		<completion string="options"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.html_radios.attributes">
+		<completion string="name"/>
+		<completion string="values"/>
+		<completion string="output"/>
+		<completion string="selected"/>
+		<completion string="options"/>
+		<completion string="separator"/>
+		<completion string="assign"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.html_select_date.attributes">
+		<completion string="prefix"/>
+		<completion string="time"/>
+		<completion string="start_year"/>
+		<completion string="end_year"/>
+		<completion string="display_days"/>
+		<completion string="display_months"/>
+		<completion string="display_years"/>
+		<completion string="month_format"/>
+		<completion string="day_format"/>
+		<completion string="day_value_format"/>
+		<completion string="year_as_text"/>
+		<completion string="reverse_days"/>
+		<completion string="field_array"/>
+		<completion string="day_size"/>
+		<completion string="month_size"/>
+		<completion string="year_size"/>
+		<completion string="all_extra"/>
+		<completion string="day_extra"/>
+		<completion string="month_extra"/>
+		<completion string="year_extra"/>
+		<completion string="field_order"/>
+		<completion string="field_separator"/>
+		<completion string="month_value_format"/>
+		<completion string="year_empty"/>
+		<completion string="month_empty"/>
+		<completion string="day_empty"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.html_select_time.attributes">
+		<completion string="prefix"/>
+		<completion string="time"/>
+		<completion string="display_hours"/>
+		<completion string="display_minutes"/>
+		<completion string="display_seconds"/>
+		<completion string="display_meridian"/>
+		<completion string="use_24_hours"/>
+		<completion string="minute_interval"/>
+		<completion string="second_interval"/>
+		<completion string="field_array"/>
+		<completion string="all_extra"/>
+		<completion string="hour_extra"/>
+		<completion string="minute_extra"/>
+		<completion string="second_extra"/>
+		<completion string="meridian_extra"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.html_table.attributes">
+		<completion string="loop"/>
+		<completion string="cols"/>
+		<completion string="rows"/>
+		<completion string="inner"/>
+		<completion string="caption"/>
+		<completion string="table_attr"/>
+		<completion string="th_attr"/>
+		<completion string="tr_attr"/>
+		<completion string="td_attr"/>
+		<completion string="trailpad"/>
+		<completion string="hdir"/>
+		<completion string="vdir"/>
+	</set>
+	
+	<set name="eu.ptrm.smarty.mailto.attributes">
+		<completion string="address"/>
+		<completion string="text"/>
+		<completion string="encode"/>
+		<completion string="cc"/>
+		<completion string="bcc"/>
+		<completion string="subject"/>
+		<completion string="newsgroups"/>
+		<completion string="followupto"/>
+		<completion string="extra"/>
+	</set>
+	
+	<set name="eu.ptrm.smarty.math.attributes">
+		<completion string="equation"/>
+		<completion string="format"/>
+		<completion string="assign"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.textformat.attributes">
+		<completion string="style"/>
+		<completion string="indent"/>
+		<completion string="indent_first"/>
+		<completion string="indent_char"/>
+		<completion string="wrap"/>
+		<completion string="wrap_char"/>
+		<completion string="wrap_cut"/>
+		<completion string="assign"/>
+	</set>
 </codesense>
