@@ -11,6 +11,11 @@
         <include syntax="sourcecode.smarty" collection="tags" />
 	</injection>
 
+	<!-- html comments -->
+	<injection name="eu.ptrm.injections.smarty.comment.html" selector="sourcecode.smarty comment.html" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" collection="tags" />
+	</injection>
+
 	<!-- <style>{$foobar} (immediately followed) -->
 	<injection name="eu.ptrm.injections.smarty.embedded-style-css" selector="sourcecode.smarty embedded-style.html" action="insert-before-children">
 	    <include syntax="sourcecode.smarty" collection="tags" />
@@ -23,6 +28,11 @@
 
 	<!-- <style>\n #header { background: url('{$path}/bg.png'); } -->
 	<injection name="eu.ptrm.injections.smarty.embedded-css.string" selector="sourcecode.smarty embedded.styling.css string.quoted" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" collection="tags" />
+	</injection>
+	
+	<!-- CSS comments -->
+	<injection name="eu.ptrm.injections.smarty.comment.css" selector="sourcecode.smarty comment.css" action="insert-before-children">
 	    <include syntax="sourcecode.smarty" collection="tags" />
 	</injection>
 
@@ -40,4 +50,10 @@
 	<injection name="eu.ptrm.injections.smarty.embedded-js.string" selector="sourcecode.smarty embedded.sourcecode.js string.quoted" action="insert-before-children">
 	    <include syntax="sourcecode.smarty" collection="tags" />
 	</injection>
+
+	<!-- JS comments -->
+	<injection name="eu.ptrm.injections.smarty.comment.js" selector="sourcecode.smarty comment.js" action="insert-before-children">
+	    <include syntax="sourcecode.smarty" collection="tags" />
+	</injection>
+
 </injections>
