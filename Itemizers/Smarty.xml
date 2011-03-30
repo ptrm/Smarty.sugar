@@ -6,15 +6,6 @@
 		<class>ESCommentItem</class>
 	</recipe>
 
-	<recipe name="smarty.tag.collection.keyword.control">
-		<start-selector>element.paired.open:has-child(keyword.control:capture(name))</start-selector>
-		<end-selector>element.paired.close:has-child(keyword.control[text == $name.text])</end-selector>
-		<subrecipes>
-			<include-root-recipes/>
-		</subrecipes>
-		<class>DRClassItem</class>
-	</recipe>
-	
 	<recipe name="smarty.tag.collection.tag.function">
 		<start-selector>element.paired.open:has-child(identifier.function.tag:capture(name))</start-selector>
 		<end-selector>element.paired.close:has-child(identifier.function.tag[text == $name.text])</end-selector>
