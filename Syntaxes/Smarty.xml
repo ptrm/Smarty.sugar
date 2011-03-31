@@ -195,7 +195,7 @@
 							<capture number="0" name="delimiter.balanced.quote.backquote.begin"/>
 						</starts-with>
 						<ends-with>
-							<expression>`</expression>
+							<expression>`|(?=")</expression>
 							<capture number="0" name="delimiter.balanced.quote.backquote.end"/>
 						</ends-with>
 						<subzones>
