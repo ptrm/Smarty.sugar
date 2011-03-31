@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codesense version="1.0">
+	<set name="eu.ptrm.smarty.smarty-var">
+		<behavior>
+			<append-static>\.</append-static>
+		</behavior>
+		
+		<completion string="smarty"/>
+	</set>
+	
+	<set name="eu.ptrm.smarty.smarty-var.root">
+		<behavior>
+			<append-static>
+				<transform-into>\.</transform-into>
+			</append-static>
+		</behavior>
+	
+		<completion string="get" />
+		<completion string="post" />
+		<completion string="cookie" />
+		<completion string="server" />
+		<completion string="env" />
+		<completion string="session" />
+		
+		<completion string="now">
+			<behavior />
+		</completion>
+		
+		<completion string="const"/>
+
+		<completion string="capture"/>
+		<completion string="config"/>
+
+		<completion string="section"/>
+		<completion string="foreach"/>
+		
+		<completion string="template">
+			<behavior />
+		</completion>
+		
+		<completion string="version">
+			<behavior />
+		</completion>
+
+		<completion string="ldelim">
+			<behavior />
+		</completion>
+
+		<completion string="rdelim">
+			<behavior />
+		</completion>
+	</set>
+
+	<set name="eu.ptrm.smarty.smarty-var.foreach">
+		<completion string="index"/>
+		<completion string="iteration"/>
+		<completion string="first"/>
+		<completion string="last"/>
+		<completion string="show"/>
+		<completion string="total"/>
+	</set>
+
+	<set name="eu.ptrm.smarty.smarty-var.section">
+		<completion string="index_prev"/>
+		<completion string="index_next"/>
+		<completion string="rownum"/>
+		<completion string="loop"/>
+	</set>
+
+</codesense>

@@ -13,4 +13,30 @@
 		<complete-match capture="2">(\s)([a-zA-Z0-9-_]*)</complete-match>
 		<require-suffix>(\s|\}|^)</require-suffix>
 	</provider>
+	
+	<provider>
+		<selector>element.paired.open:has-child(identifier.function.tag.open:capture(name)), element.paired.open:has-child(identifier.function.tag.open:capture(name)) constant.escape.string, element.paired.open:has-child(identifier.function.tag.open:capture(name)) constant.escape.string delimiter.balanced.quote.backquote.end, element.paired.open:has-child(identifier.function.tag.open:capture(name)) > delimiter.balanced.bracket.end, element.standalone, element.standalone constant.escape.string, element.standalone constant.escape.string delimiter.balanced.quote.backquote.end, element.standalone > delimiter.balanced.bracket.end</selector>
+		<completions>eu.ptrm.smarty.smarty-var</completions>
+		<complete-match capture="2">(\$)([a-zA-Z0-9-_]*)</complete-match>
+	</provider>
+	
+	<provider>
+		<selector>element.paired.open:has-child(identifier.function.tag.open:capture(name)), element.paired.open:has-child(identifier.function.tag.open:capture(name)) constant.escape.string, element.paired.open:has-child(identifier.function.tag.open:capture(name)) constant.escape.string delimiter.balanced.quote.backquote.end, element.paired.open:has-child(identifier.function.tag.open:capture(name)) > delimiter.balanced.bracket.end, element.standalone, element.standalone constant.escape.string, element.standalone constant.escape.string delimiter.balanced.quote.backquote.end, element.standalone > delimiter.balanced.bracket.end</selector>
+		<completions>eu.ptrm.smarty.smarty-var.root</completions>
+		<complete-match capture="2">(\$smarty\.)([a-zA-Z0-9-_]*)</complete-match>
+	</provider>
+
+	<provider>
+		<selector>element.paired.open:has-child(identifier.function.tag.open:capture(name)), element.paired.open:has-child(identifier.function.tag.open:capture(name)) constant.escape.string, element.paired.open:has-child(identifier.function.tag.open:capture(name)) constant.escape.string delimiter.balanced.quote.backquote.end, element.paired.open:has-child(identifier.function.tag.open:capture(name)) > delimiter.balanced.bracket.end, element.standalone, element.standalone constant.escape.string, element.standalone constant.escape.string delimiter.balanced.quote.backquote.end, element.standalone > delimiter.balanced.bracket.end</selector>
+		<completions>eu.ptrm.smarty.smarty-var.foreach</completions>
+		<complete-match capture="2">(\$smarty\.foreach\.)([a-zA-Z0-9-_]*)</complete-match>
+	</provider>
+
+	<provider>
+		<selector>element.paired.open:has-child(identifier.function.tag.open:capture(name)), element.paired.open:has-child(identifier.function.tag.open:capture(name)) constant.escape.string, element.paired.open:has-child(identifier.function.tag.open:capture(name)) constant.escape.string delimiter.balanced.quote.backquote.end, element.paired.open:has-child(identifier.function.tag.open:capture(name)) > delimiter.balanced.bracket.end, element.standalone, element.standalone constant.escape.string, element.standalone constant.escape.string delimiter.balanced.quote.backquote.end, element.standalone > delimiter.balanced.bracket.end</selector>
+		<completions>eu.ptrm.smarty.smarty-var.foreach</completions>
+		<completions>eu.ptrm.smarty.smarty-var.section</completions>
+		<complete-match capture="2">(\$smarty\.section\.)([a-zA-Z0-9-_]*)</complete-match>
+	</provider>
+
 </codesense>
