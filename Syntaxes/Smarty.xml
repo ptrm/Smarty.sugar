@@ -196,7 +196,7 @@
 			</zone>
 			
 			<zone name="delimiter.balanced.parenthesis.end">
-				<expression>\(</expression>
+				<expression>\)</expression>
 			</zone>
 
 			<include collection="number" />
