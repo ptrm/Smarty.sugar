@@ -86,12 +86,12 @@
 	
 			<zone name="element.standalone">
 				<starts-with>
-					<expression>(\{)\s*((((else|elseif|foreachelse|sectionelse))|(config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|math|rdelim|ldelim|assign|html_[a-z_]*)|([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*))(?=(\s|\}))\b|(?=[\$#"']))</expression>
+					<expression>(\{)\s*(((else|elseif|foreachelse|sectionelse))|(config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|math|rdelim|ldelim|assign|html_[a-z_]*)|([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*))(?=(\s|\}))\b</expression>
 					<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
-					<capture number="4" name="identifier.function.tag"/>
-					<capture number="5" name="keyword.control"/>
-					<capture number="6" name="identifier.function.tag.built-in"/>
-					<capture number="7" name="identifier.function.tag"/>
+					<capture number="3" name="identifier.function.tag"/>
+					<capture number="4" name="keyword.control"/>
+					<capture number="5" name="identifier.function.tag.built-in"/>
+					<capture number="6" name="identifier.function.tag"/>
 				</starts-with>
 				<ends-with>
 					<expression>\}</expression>
@@ -99,6 +99,20 @@
 				</ends-with>
 				<subzones>
 					<include collection="tag" />
+				</subzones>
+			</zone>
+			
+			<zone name="element.standalone.notag">
+				<starts-with>
+					<expression>(\{)\s*(?=[#"'\$])</expression>
+					<capture number="1" name="delimiter.balanced.bracket.begin.curly-brace"/>
+				</starts-with>
+				<ends-with>
+					<expression>\}</expression>
+					<capture number="0" name="delimiter.balanced.bracket.end.curly-brace"/>
+				</ends-with>
+				<subzones>
+					<include collection="element-notag" />
 				</subzones>
 			</zone>
 			
@@ -122,11 +136,6 @@
 				<expression>(\b(eq|neq|gt|lt|gte|lte|is|not|even|odd|not|mod|div|by)\b|===|==|!==|!=|!|&lt;=|&gt;=|&gt;|&lt;)</expression>
 			</zone>
 
-			<zone name="identifier.function.variable-modifier">
-<!--				<expression>\|(capitalize|cat|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|truncate|upper|wordwrap)</expression>-->
-					<expression>\|@?[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*</expression>
-			</zone>
-		
 			<zone>
 				<expression>\b([a-zA-Z_]+)(=)([a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)?</expression>
 				<capture number="1" name="attribute-name"/>
@@ -134,6 +143,15 @@
 				<capture number="3" name="literal.string.attribute-value.unquoted"/>
 			</zone>
 
+			<include collection="element-notag" />
+		</collection>
+		
+		<collection name="element-notag">
+			<zone name="identifier.function.variable-modifier">
+<!--				<expression>\|(capitalize|cat|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|truncate|upper|wordwrap)</expression>-->
+					<expression>\|@?[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*</expression>
+			</zone>
+		
 			<zone name="identifier.variable.config">
 				<starts-with>
 					<expression>#</expression>
@@ -182,6 +200,7 @@
 						</ends-with>
 						<subzones>
 							<include collection="variable" />
+							<include collection="math" />
 						</subzones>
 					</zone>
 				</subzones>
@@ -202,7 +221,8 @@
 			<include collection="number" />
 			
 			<include collection="variable" />
-			
+
+			<include collection="math" />
 		</collection>
 		
 		<collection name="escape">
@@ -221,6 +241,12 @@
 			<zone name="literal.numeric.integer">
 				<expression>\b[0-9]+\b</expression>
 				<capture number="0" name="integral.value" />
+			</zone>
+		</collection>
+		
+		<collection name="math">
+			<zone name="operator.mathematical">
+				<expression>(?&lt;=[a-zA-Z0-9_\x{7f}-\x{ff}])[\+\-\*\/%](?=[\$0-9])</expression>
 			</zone>
 		</collection>
 		
