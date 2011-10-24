@@ -3,7 +3,7 @@
 	<zones>
 		<include collection="tags" />
 						
-		<include syntax="text.html.basic" />
+		<include syntax="language-root.html" />
 	</zones>
 	
 	<library>
@@ -34,8 +34,8 @@
 					<capture number="2" name="identifier.function.tag.close.built-in"/>
 					<capture number="3" name="delimiter.balanced.bracket.end.curly-brace"/>
 				</ends-with>
-				<subzones name="embedded.text.html.basic">
-					<include syntax="text.html.basic" />
+				<subzones name="embedded.language-root.html">
+					<include syntax="language-root.html" />
 				</subzones>
 			</zone>
 			
