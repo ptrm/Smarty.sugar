@@ -4,7 +4,7 @@ Smarty is a PHP Template Engine for designers. Built in LiveStreet and CoGear.
 
 I hate any template engine but use it every day in developing LS skin and skin Sugar is a working solution for Smarty syntax (.tpl files, for example).
 
-Based on the [php-smarty TextMate bundle](https://github.com/textmate/php-smarty.tmbundle) and forked from [prtm](https://github.com/ptrm/)'s repo.
+Based on the [php-smarty TextMate bundle](https://github.com/textmate/php-smarty.tmbundle) and forked from [prtm](https://github.com/ptrm/)'s [repo](https://github.com/ptrm/Smarty.sugar).
 
 ## Known bugs
 - smarty highlighting is present inside html tags enclosed by `{literal}`
